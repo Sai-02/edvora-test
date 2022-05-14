@@ -1,0 +1,46 @@
+.navbar {
+  padding: 30px 43px;
+  display: flex;
+}
+.nav-list {
+  display: flex;
+  gap: 44px;
+  flex-grow: 1;
+}
+.nav-li {
+  list-style: none;
+}
+.nav-li a {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  cursor: pointer;
+  color: #d0cbcb;
+  text-decoration: none;
+}
+.selected-nav-li a {
+  color: white;
+  text-decoration: underline;
+}
+
+.filter-container {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.filter-container p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #f2f2f2;
+}
+.filter-icon {
+  width: 18px;
+  height: 12px;
+}
