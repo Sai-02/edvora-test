@@ -8,6 +8,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import UpcomingRides from "./components/UpcomingRides/UpcomingRides";
 function App() {
   return (
     <Router>
@@ -17,6 +18,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="nearest-rides" element={<NearestRides />} />
+            <Route path="upcoming-rides" element={<UpcomingRides />} />
           </Routes>
         </div>
       </div>
