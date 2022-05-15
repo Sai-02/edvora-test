@@ -1,0 +1,49 @@
+.nearest-rides-container {
+  padding: 2px 40px;
+  display: grid;
+  gap: 13px;
+}
+.nr-single-ride {
+  padding: 22px;
+  background: #171717;
+  border-radius: 10px;
+  display: flex;
+  gap: 44px;
+  align-items: center;
+  position: relative;
+}
+.state-city-container {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  color: white;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  gap: 34px;
+}
+.state-city-container p {
+  padding: 4px;
+  background: rgba(0, 0, 0, 0.56);
+  border-radius: 16px;
+  width: 80px;
+  height: 23px;
+  text-align: center;
+}
+.nr-info {
+  flex-grow: 1;
+  display: grid;
+  gap: 0.5rem;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #cfcfcf;
+}
+.white-text {
+  color: white;
+}
