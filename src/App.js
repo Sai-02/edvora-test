@@ -37,13 +37,16 @@ function App() {
           <Routes>
             <Route
               path="nearest-rides"
-              element={<NearestRides rides={rides} />}
+              element={<NearestRides rides={rides} user={user} />}
             />
             <Route
               path="upcoming-rides"
-              element={<UpcomingRides rides={rides} />}
+              element={<UpcomingRides rides={rides} user={user} />}
             />
-            <Route path="past-rides" element={<PastRides rides={rides} />} />
+            <Route
+              path="past-rides"
+              element={<PastRides rides={rides} user={user} />}
+            />
           </Routes>
         </div>
       </div>

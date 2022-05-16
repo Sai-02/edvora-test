@@ -1,5 +1,5 @@
 import React from "react";
-const SingleRide = ({ ride }) => {
+const SingleRide = ({ ride, user }) => {
   return (
     <div className="nr-single-ride">
       <div className="state-city-container">
@@ -18,13 +18,19 @@ const SingleRide = ({ ride }) => {
           <span className="white-text">{ride.origin_station_code}</span>
         </p>
         <p className="">
-          station_path :<span className="white-text">{ride.station_path}</span>
+          station_path :
+          <span className="white-text">
+            {JSON.stringify(ride.station_path)}
+          </span>
         </p>
         <p className="">
           Date : <span className="white-text">{ride.date}</span>
         </p>
         <p className="">
-          Distance : <span className="white-text">0</span>
+          Distance :{" "}
+          <span className="white-text">
+            {Math.abs(ride.origin_station_code - user.station_code)}
+          </span>
         </p>
       </div>
     </div>

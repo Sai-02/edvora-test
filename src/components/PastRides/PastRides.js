@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import SingleRide from "../NearestRides/SingleRide";
-const PastRides = ({ rides }) => {
+const PastRides = ({ rides, user }) => {
   const [pastRides, setPastRides] = useState([]);
   useEffect(() => {
     const today = new Date();
@@ -18,7 +18,7 @@ const PastRides = ({ rides }) => {
   return (
     <div className="nearest-rides-container upcoming-rides-container">
       {pastRides.map((ride, index) => {
-        return <SingleRide key={ride.id} ride={ride} />;
+        return <SingleRide key={ride.id} ride={ride} user={user} />;
       })}
     </div>
   );

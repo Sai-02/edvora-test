@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SingleRide from "../NearestRides/SingleRide";
 import "../../styles/UpcomingRides.css";
-const UpcomingRides = ({ rides }) => {
+const UpcomingRides = ({ rides, user }) => {
   const [upcomingRides, setUpcomingRides] = useState([]);
   useEffect(() => {
     const today = new Date();
