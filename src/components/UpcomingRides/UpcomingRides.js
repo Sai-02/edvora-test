@@ -7,14 +7,10 @@ const UpcomingRides = ({ rides, user }) => {
     const today = new Date();
     const filtered = rides.filter((ride) => {
       const date = new Date(ride.date);
-      console.log(date, today);
       return today < date;
     });
     setUpcomingRides(filtered);
   }, []);
-  useEffect(() => {
-    console.log(upcomingRides);
-  }, [upcomingRides]);
   return (
     <div className="nearest-rides-container upcoming-rides-container">
       {upcomingRides.map((ride, index) => {

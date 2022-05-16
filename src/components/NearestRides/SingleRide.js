@@ -1,5 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 const SingleRide = ({ ride, user }) => {
+  const [distance, setDistance] = useState(0);
+  useEffect(() => {
+    let min = Number.MAX_VALUE;
+    ride.station_path.forEach((path) => {
+      min = Math.min(
+        min,
+        Math.abs(parseInt(path) - parseInt(user.station_code))
+      );
+    });
+    setDistance(min);
+  }, []);
   return (
     <div className="nr-single-ride">
       <div className="state-city-container">
@@ -27,10 +38,7 @@ const SingleRide = ({ ride, user }) => {
           Date : <span className="white-text">{ride.date}</span>
         </p>
         <p className="">
-          Distance :{" "}
-          <span className="white-text">
-            {Math.abs(ride.origin_station_code - user.station_code)}
-          </span>
+          Distance : <span className="white-text">{distance}</span>
         </p>
       </div>
     </div>

@@ -14,6 +14,7 @@ import PastRides from "./components/PastRides/PastRides";
 function App() {
   const [user, setUser] = useState({});
   const [rides, setRides] = useState([]);
+  const [nearestRides, setNearestRides] = useState([]);
   useEffect(() => {
     fetch("https://assessment.api.vweb.app/rides")
       .then((res) => res.json())
@@ -28,6 +29,22 @@ function App() {
       })
       .catch((e) => console.log(e));
   }, []);
+  useEffect(() => {
+    const arr = [];
+    if (rides.length == 0 || Object.keys(user).length == 0) return;
+    rides.forEach((ride) => {
+      let obj = { ...ride };
+      let min = Number.MAX_VALUE;
+      if (ride == undefined) return;
+      ride.station_path.forEach((path) => {
+        min = Math.min(min, Math.abs(path - user.station_code));
+      });
+      obj.distance = min;
+      arr.push(obj);
+      arr.sort((a, b) => a.distance - b.distance);
+      setNearestRides(arr);
+    });
+  }, [rides]);
   return (
     <Router>
       <div className="container">
@@ -37,7 +54,12 @@ function App() {
           <Routes>
             <Route
               path="nearest-rides"
-              element={<NearestRides rides={rides} user={user} />}
+              element={
+                <NearestRides
+                  rides={nearestRides}
+                  user={user}
+                />
+              }
             />
             <Route
               path="upcoming-rides"
