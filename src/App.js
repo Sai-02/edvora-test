@@ -54,12 +54,7 @@ function App() {
           <Routes>
             <Route
               path="nearest-rides"
-              element={
-                <NearestRides
-                  rides={nearestRides}
-                  user={user}
-                />
-              }
+              element={<NearestRides rides={nearestRides} user={user} />}
             />
             <Route
               path="upcoming-rides"
