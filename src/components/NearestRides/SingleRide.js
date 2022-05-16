@@ -1,30 +1,27 @@
 import React from "react";
-import mapImg from "../../images/mapImg.svg";
-const SingleRide = () => {
+const SingleRide = ({ ride }) => {
   return (
     <div className="nr-single-ride">
       <div className="state-city-container">
-        <p className="">State </p>
-        <p className="">city</p>
+        <p className="">{ride.state}</p>
+        <p className="">{ride.city}</p>
       </div>
       <div className="nr-img-container">
-        <img src={mapImg} alt="" />
+        <img src={ride.map_url} alt="" />
       </div>
       <div className="nr-info">
         <p className="">
-          Ride Id : <span className="white-text">002</span>
+          Ride Id : <span className="white-text">{ride.id}</span>
         </p>
         <p className="">
-          Origin Station : <span className="white-text">20</span>
+          Origin Station :{" "}
+          <span className="white-text">{ride.origin_station_code}</span>
         </p>
         <p className="">
-          station_path :
-          <span className="white-text">
-            [20, 39, 40, 42, 54, 63, 72, 88, 98]
-          </span>
+          station_path :<span className="white-text">{ride.station_path}</span>
         </p>
         <p className="">
-          Date : <span className="white-text">15th Feb 2022 16:33</span>
+          Date : <span className="white-text">{ride.date}</span>
         </p>
         <p className="">
           Distance : <span className="white-text">0</span>

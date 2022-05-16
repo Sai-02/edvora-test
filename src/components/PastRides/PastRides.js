@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useState, useEffect } from "react";
 import SingleRide from "../NearestRides/SingleRide";
-import "../../styles/UpcomingRides.css";
-const UpcomingRides = ({ rides }) => {
-  const [upcomingRides, setUpcomingRides] = useState([]);
+const PastRides = ({ rides }) => {
+  const [pastRides, setPastRides] = useState([]);
   useEffect(() => {
     const today = new Date();
     const filtered = rides.filter((ride) => {
       const date = new Date(ride.date);
       console.log(date, today);
-      return today < date;
+      return today > date;
     });
-    setUpcomingRides(filtered);
+    setPastRides(filtered);
   }, []);
   useEffect(() => {
-    console.log(upcomingRides);
-  }, [upcomingRides]);
+    console.log(pastRides);
+  }, [pastRides]);
   return (
     <div className="nearest-rides-container upcoming-rides-container">
-      {upcomingRides.map((ride, index) => {
+      {pastRides.map((ride, index) => {
         return <SingleRide key={ride.id} ride={ride} />;
       })}
     </div>
   );
 };
 
-export default UpcomingRides;
+export default PastRides;

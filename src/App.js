@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import UpcomingRides from "./components/UpcomingRides/UpcomingRides";
 import { useEffect, useState } from "react";
+import PastRides from "./components/PastRides/PastRides";
 function App() {
   const [rides, setRides] = useState([]);
   useEffect(() => {
@@ -27,11 +28,15 @@ function App() {
         <div className="wrapper">
           <Navbar />
           <Routes>
-            <Route path="nearest-rides" element={<NearestRides />} />
+            <Route
+              path="nearest-rides"
+              element={<NearestRides rides={rides} />}
+            />
             <Route
               path="upcoming-rides"
               element={<UpcomingRides rides={rides} />}
             />
+            <Route path="past-rides" element={<PastRides rides={rides} />} />
           </Routes>
         </div>
       </div>
